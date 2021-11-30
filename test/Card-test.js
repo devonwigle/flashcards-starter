@@ -31,7 +31,7 @@ describe('Card', function() {
 
   });  
 
-  it.skip('should store the correct answer', function() {
+  it('should store the correct answer', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.correctAnswer).to.equal('object');
   });
