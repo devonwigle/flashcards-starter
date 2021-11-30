@@ -21,6 +21,7 @@ describe('Turn', function() {
   })
 
   it('should return user guess', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
 
     turn.returnGuess();
@@ -49,6 +50,19 @@ describe('Turn', function() {
   it('should return whether the guess is correct', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
+
+    turn.giveFeedback();
+
+    expect(turn.giveFeedback()).to.equal('Correct!')
+  })
+
+  it('should return whether the guess is incorrect', function () {
+    const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('array', card);
+
+    turn.giveFeedback();
+
+    expect(turn.giveFeedback()).to.equal('Incorrect!')
   })
 
 })
