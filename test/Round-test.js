@@ -97,7 +97,17 @@ describe('Round', function() {
     const turn2 = new Turn('array', card.id[2]);
 
     round.takeTurn();
-    
+
     expect(round.takeTurn()).to.equal('Incorrect!')
+  })
+
+  it('should return feedback if correct', function () {
+    const deck = new Deck(smallDeck)
+    const round = new Round(deck)
+    const turn1 = new Turn('object', card.id[1]);
+
+    round.takeTurn();
+
+    expect(round.takeTurn()).to.equal('Correct!')
   })
 })
