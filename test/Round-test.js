@@ -73,7 +73,20 @@ describe('Round', function() {
       question: 'What is a comma-separated list of related values?',
       answers: ['array', 'object', 'function'],
       correctAnswer: 'array'
-    })
+    });
+  })
+  
+  it('should store incorrect guesses in an array', function() {
+    const deck = new Deck(smallDeck)
+    const round = new Round(deck)
+    const turn1 = new Turn('array', card.id[1]);
+    const turn2 = new Turn('array', card.id[2]);
+    const turn3 = new Turn('iteration method', card.id[3])
 
+    round.takeTurn();
+    round.takeTurn();
+    round.takeTurn();
+
+    expect(round.incorrectGuesses).to.deep.equal([1, 3]);
   })
 })
