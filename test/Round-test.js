@@ -124,4 +124,20 @@ describe('Round', function() {
 
     expect(round.calculatePercentCorrect).to.equal(33.3);
   })
+
+  it('should end the round', function() {
+    const deck = new Deck(smallDeck)
+    const round = new Round(deck)
+    const turn1 = new Turn('array', card.id[1]);
+    const turn2 = new Turn('array', card.id[2]);
+    const turn3 = new Turn('iteration method', card.id[3])
+
+    round.takeTurn();
+    round.takeTurn();
+    round.takeTurn();
+    round.calculatePercentCorrect();
+    round.endRound();
+
+    expect(round.endRound()).to.equal('**Round over!** You answered 33.3% of the questions correctly!')
+  })
 })
