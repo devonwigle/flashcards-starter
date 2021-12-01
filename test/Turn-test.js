@@ -44,7 +44,7 @@ describe('Turn', function() {
 
     turn.evaluateGuess();
 
-    expect(turn.evaluateGuess).to.be.a('boolean');
+    expect(turn.evaluateGuess()).to.be.a('boolean');
   });
 
   it('should return whether the guess is correct', function() {
