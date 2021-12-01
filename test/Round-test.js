@@ -1,15 +1,16 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Card = require('../src/Card');
+const Deck = require('../src/smallData');
 const Round = require('../src/Round');
 const Turn = require('../src/Turn');
-const Deck = require('../src/smallData');
 
 describe('Round', function() {
   it.only('should return the current card being played', function() {
+    const deck = new Deck(deck);
+    const round = new Round(deck);
     const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
-    const deck = new Deck(smallDeck)
-    const round = new Round(deck)
     const turn = new Turn('object', card);
 
     round.returnCurrentCard();
