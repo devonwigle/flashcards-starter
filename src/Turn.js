@@ -18,6 +18,13 @@ class Turn {
     }
     return false
   }
+
+  giveFeedback() {
+    let checkGuess = this.evaluateGuess()
+    if (checkGuess === true) {
+      return 'Correct!'
+    }
+  }
 }
 
 module.exports = Turn;
