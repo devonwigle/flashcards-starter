@@ -35,7 +35,7 @@ describe('Turn', function() {
 
     turn.returnCard();
 
-    expect(turn.returnCard()).to.equal({ id: 1, question: 'What allows you to define a set of related information using key - value pairs ? ', answers: ['object', 'array', 'function'], correctAnswer: 'object' })
+    expect(turn.card).to.deep.equal({ id: 1, question: 'What allows you to define a set of related information using key - value pairs ? ', answers: ['object', 'array', 'function'], correctAnswer: 'object' })
   });
 
   it('should evaluate as a boolean', function() {
