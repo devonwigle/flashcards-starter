@@ -11,7 +11,7 @@ describe('Deck', function() {
   })
 
   it('should contain 30 objects', function() {
-    const deck = new Deck();
+    const deck = new Deck(data.prototypeData);
     expect(deck.countCards()).to.equal(30);
   })
 })
