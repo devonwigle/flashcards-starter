@@ -11,7 +11,7 @@ describe('Round', function() {
     const turn = new Turn('object', card);
 
     round.returnCurrentCard();
-    
+
     expect(round.returnCurrentCard()).to.deep.equal({ id: 1, question: 'What allows you to define a set of related information using key - value pairs ? ', answers: ['object', 'array', 'function'], correctAnswer: 'object' })
   })
 
@@ -24,4 +24,14 @@ describe('Round', function() {
 
     expect(round.takeTurn()).to.be.an.instanceOf(turn, Turn);
   })
+
+  it('should update turns count when guess is correct', function() {
+    const round = new Round()
+    const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+
+    round.taketurn();
+
+    expect(round.turnCount).to.equal(1);
+  }) 
 })
