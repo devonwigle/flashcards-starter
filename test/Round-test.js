@@ -94,7 +94,6 @@ describe('Round', function() {
     const deck = new Deck(smallDeck)
     const round = new Round(deck)
     const turn1 = new Turn('array', card.id[1]);
-    const turn2 = new Turn('array', card.id[2]);
 
     round.takeTurn();
 
@@ -109,5 +108,20 @@ describe('Round', function() {
     round.takeTurn();
 
     expect(round.takeTurn()).to.equal('Correct!')
+  })
+
+  it('should calculate the percent correct', function() {
+    const deck = new Deck(smallDeck)
+    const round = new Round(deck)
+    const turn1 = new Turn('array', card.id[1]);
+    const turn2 = new Turn('array', card.id[2]);
+    const turn3 = new Turn('iteration method', card.id[3])
+
+    round.takeTurn();
+    round.takeTurn();
+    round.takeTurn();
+    round.calculatePercentCorrect();
+
+    expect(round.calculatePercentCorrect).to.equal(33.3);
   })
 })
