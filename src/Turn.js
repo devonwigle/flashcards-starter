@@ -24,6 +24,7 @@ class Turn {
     if (checkGuess === true) {
       return 'Correct!'
     }
+    return 'Incorrect!'
   }
 }
 
