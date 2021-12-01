@@ -75,7 +75,7 @@ describe('Round', function() {
       correctAnswer: 'array'
     });
   })
-  
+
   it('should store incorrect guesses in an array', function() {
     const deck = new Deck(smallDeck)
     const round = new Round(deck)
@@ -88,5 +88,16 @@ describe('Round', function() {
     round.takeTurn();
 
     expect(round.incorrectGuesses).to.deep.equal([1, 3]);
+  })
+
+  it('should return feedback if incorrect', function() {
+    const deck = new Deck(smallDeck)
+    const round = new Round(deck)
+    const turn1 = new Turn('array', card.id[1]);
+    const turn2 = new Turn('array', card.id[2]);
+
+    round.takeTurn();
+    
+    expect(round.takeTurn()).to.equal('Incorrect!')
   })
 })
