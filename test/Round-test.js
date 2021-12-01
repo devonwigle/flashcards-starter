@@ -34,4 +34,14 @@ describe('Round', function() {
 
     expect(round.turnCount).to.equal(1);
   }) 
+
+  it('should update turns count when guess is correct', function () {
+    const round = new Round()
+    const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('array', card);
+
+    round.taketurn();
+
+    expect(round.turnCount).to.equal(1);
+  })
 })
