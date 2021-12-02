@@ -20,7 +20,11 @@ class Round {
     this.turn.giveFeedback()
     };
   calculatePercentCorrect() {
-    return Math.round(10*(1 - (this.incorrectGuesses.length/this.deck.length))*100)/10
+    const percent = Math.round(10 * (1 - (this.incorrectGuesses.length / this.deck.length)) * 100) / 10
+    return percent
+  }
+  endRound() {
+    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 
