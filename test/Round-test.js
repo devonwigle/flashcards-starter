@@ -2,20 +2,21 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-const Deck = require('../src/smallData');
+const smallData = require('../src/smallData');
+const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 
 describe('Round', function() {
-  it.only('should return the current card being played', function() {
-    const deck = new Deck(deck);
+  it('should return the current card being played', function() {
+    const deck = new Deck(smallData.protoData);
     const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key - value pairs ? ', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn = new Turn('object', card);
 
     round.returnCurrentCard();
 
-    expect(round.returnCurrentCard()).to.deep.equal({ id: 1, question: 'What allows you to define a set of related information using key - value pairs ? ', answers: ['object', 'array', 'function'], correctAnswer: 'object' })
+    expect(round.returnCurrentCard()).to.deep.equal({ id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object' })
   })
 
   it('should create a new instance of Turn', function() {
