@@ -23,10 +23,10 @@ class Game {
     const cards = prototypeQuestions.map(card => {
       let card = new Card(card.id, card.question, card.answers, card.correctAnswer);
       return card;
-    }
+    });
     const deck = new Deck(cards);
     this.currentRound = new Round(deck)
-    this.printMessage(deck);
+    this.printMessage(deck, round);
     this.printQuestion(round);
   }
 }
