@@ -81,7 +81,7 @@ describe('Round', () => {
   it('should return feedback if correct', () => {
     turn1 = new Turn('object', card);
 
-    let correctGuess = round.takeTurn('object');
+    round.takeTurn('object');
 
     expect(round.turn.giveFeedback()).to.equal('Correct!')
   })
