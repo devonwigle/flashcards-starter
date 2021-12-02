@@ -17,4 +17,8 @@ describe('Game', () => {
   beforeEach(() => {
     game = new Game()
   });
+
+  it('should keep track of the current round', () => {
+    expect(game.currentRound).to.be.an.instanceOf(Round);
+  })
 })
