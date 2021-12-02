@@ -21,4 +21,10 @@ describe('Game', () => {
   it('should keep track of the current round', () => {
     expect(game.currentRound).to.be.an.instanceOf(Round);
   })
+
+  it('should put cards in a deck', () => {
+    game.start();
+
+    expect(deck).to.be.an.instanceOf(Deck);
+  })
 })
