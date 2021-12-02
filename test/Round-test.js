@@ -96,7 +96,6 @@ describe('Round', function() {
     const turn1 = new Turn('object', card);
 
     const correctGuess = round.takeTurn('object');
-    console.log("guess: ", correctGuess)
 
     expect(round.turn.giveFeedback()).to.equal('Correct!')
   })
