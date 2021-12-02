@@ -21,7 +21,7 @@ class Turn {
 
   giveFeedback() {
     let checkGuess = this.evaluateGuess()
-    if (checkGuess === true) {
+    if (checkGuess) {
       return 'Correct!'
     }
     return 'Incorrect!'
