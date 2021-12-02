@@ -7,7 +7,7 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 
-describe('Round', function() {
+describe('Round', () => {
   let deck;
   let round;
   let card;
@@ -26,28 +26,28 @@ describe('Round', function() {
     turn3 = new Turn('iteration method', card.id[3])
   })
 
-  it('should return the current card being played', function() {
+  it('should return the current card being played', () => {
 
     round.returnCurrentCard();
 
     expect(round.returnCurrentCard()).to.deep.equal({ id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object' })
   })
 
-  it('should create a new instance of Turn', function() {
+  it('should create a new instance of Turn', () => {
 
     round.takeTurn();
 
     expect(round.turn).to.be.an.instanceOf(Turn);
   })
 
-  it('should update turns count when guess is correct', function() {
+  it('should update turns count when guess is correct', () => {
 
     round.takeTurn();
 
     expect(round.turns).to.equal(1);
   }) 
 
-  it('should update turns count when guess is incorrect', function () {
+  it('should update turns count when guess is incorrect', () => {
     turn = new Turn('array', card);
 
     round.takeTurn();
@@ -55,14 +55,14 @@ describe('Round', function() {
     expect(round.turns).to.equal(1);
   })
 
-  it('should update current card to the next card', function() {
+  it('should update current card to the next card', () => {
 
     round.takeTurn('object');
 
     expect(round.returnCurrentCard()).to.equal(smallData.protoData[round.turns]);
   })
 
-  it('should store incorrect guesses in an array', function() {
+  it('should store incorrect guesses in an array', () => {
 
     round.takeTurn('array');
     round.takeTurn('array');
@@ -71,14 +71,14 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([1, 3]);
   })
 
-  it('should return feedback if incorrect', function() {
+  it('should return feedback if incorrect', () => {
 
     round.takeTurn('array');
 
     expect(round.turn.giveFeedback()).to.equal('Incorrect!')
   })
 
-  it('should return feedback if correct', function () {
+  it('should return feedback if correct', () => {
     turn1 = new Turn('object', card);
 
     let correctGuess = round.takeTurn('object');
@@ -86,7 +86,7 @@ describe('Round', function() {
     expect(round.turn.giveFeedback()).to.equal('Correct!')
   })
 
-  it('should calculate the percent correct', function() {
+  it('should calculate the percent correct', () => {
 
     round.takeTurn('array');
     round.takeTurn('array');
@@ -96,7 +96,7 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(33.3);
   })
 
-  it('should end the round', function() {
+  it('should end the round', () => {
 
     round.takeTurn('array');
     round.takeTurn('array');
