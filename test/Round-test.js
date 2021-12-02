@@ -79,8 +79,9 @@ describe('Round', function() {
   })
 
   it('should return feedback if incorrect', function() {
-    const deck = new Deck(smallDeck)
-    const round = new Round(deck)
+    const deck = new Deck(smallData.protoData);
+    const round = new Round(deck);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('array', card.id[1]);
 
     round.takeTurn();
@@ -89,8 +90,9 @@ describe('Round', function() {
   })
 
   it('should return feedback if correct', function () {
-    const deck = new Deck(smallDeck)
-    const round = new Round(deck)
+    const deck = new Deck(smallData.protoData);
+    const round = new Round(deck);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('object', card.id[1]);
 
     round.takeTurn();
@@ -99,30 +101,32 @@ describe('Round', function() {
   })
 
   it('should calculate the percent correct', function() {
-    const deck = new Deck(smallDeck)
-    const round = new Round(deck)
+    const deck = new Deck(smallData.protoData);
+    const round = new Round(deck);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('array', card.id[1]);
     const turn2 = new Turn('array', card.id[2]);
     const turn3 = new Turn('iteration method', card.id[3])
 
-    round.takeTurn();
-    round.takeTurn();
-    round.takeTurn();
+    round.takeTurn('array');
+    round.takeTurn('array');
+    round.takeTurn('iteration method');
     round.calculatePercentCorrect();
 
     expect(round.calculatePercentCorrect).to.equal(33.3);
   })
 
   it('should end the round', function() {
-    const deck = new Deck(smallDeck)
-    const round = new Round(deck)
+    const deck = new Deck(smallData.protoData);
+    const round = new Round(deck);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('array', card.id[1]);
     const turn2 = new Turn('array', card.id[2]);
     const turn3 = new Turn('iteration method', card.id[3])
 
-    round.takeTurn();
-    round.takeTurn();
-    round.takeTurn();
+    round.takeTurn('array');
+    round.takeTurn('array');
+    round.takeTurn('iteration method');
     round.calculatePercentCorrect();
     round.endRound();
 
