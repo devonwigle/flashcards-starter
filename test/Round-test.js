@@ -86,18 +86,19 @@ describe('Round', function() {
 
     round.takeTurn('array');
 
-    expect(round.takeTurn()).to.equal('Incorrect!')
+    expect(round.turn.giveFeedback()).to.equal('Incorrect!')
   })
 
-  it.only('should return feedback if correct', function () {
+  it('should return feedback if correct', function () {
     const deck = new Deck(smallData.protoData);
     const round = new Round(deck);
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('object', card);
 
-    round.takeTurn('object');
+    const correctGuess = round.takeTurn('object');
+    console.log("guess: ", correctGuess)
 
-    expect(round.takeTurn()).to.equal('Correct!')
+    expect(round.turn.giveFeedback()).to.equal('Correct!')
   })
 
   it('should calculate the percent correct', function() {
@@ -113,7 +114,7 @@ describe('Round', function() {
     round.takeTurn('iteration method');
     round.calculatePercentCorrect();
 
-    expect(round.calculatePercentCorrect).to.equal(33.3);
+    expect(round.calculatePercentCorrect()).to.equal(33.3);
   })
 
   it('should end the round', function() {
