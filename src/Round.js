@@ -18,9 +18,9 @@ class Round {
     this.turn = new Turn(guess, currentCard)
     if (!this.turn.evaluateGuess()) {
       this.incorrectGuesses.push(currentCard.id)
-  }
-    this.turn.giveFeedback()
     }
+    this.turn.giveFeedback()
+  }
 
   calculatePercentCorrect() {
     let percent = Math.round(10 * (1 - (this.incorrectGuesses.length / this.deck.length)) * 100) / 10
