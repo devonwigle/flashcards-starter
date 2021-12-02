@@ -82,20 +82,20 @@ describe('Round', function() {
     const deck = new Deck(smallData.protoData);
     const round = new Round(deck);
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('array', card.id[1]);
+    const turn1 = new Turn('array', card);
 
-    round.takeTurn();
+    round.takeTurn('array');
 
     expect(round.takeTurn()).to.equal('Incorrect!')
   })
 
-  it('should return feedback if correct', function () {
+  it.only('should return feedback if correct', function () {
     const deck = new Deck(smallData.protoData);
     const round = new Round(deck);
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('object', card.id[1]);
+    const turn1 = new Turn('object', card);
 
-    round.takeTurn();
+    round.takeTurn('object');
 
     expect(round.takeTurn()).to.equal('Correct!')
   })
