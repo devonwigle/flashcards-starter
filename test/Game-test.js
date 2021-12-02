@@ -13,4 +13,8 @@ describe('Game', () => {
   let card;
   let turn;
   let game;
+
+  beforeEach(() => {
+    game = new Game()
+  });
 })
