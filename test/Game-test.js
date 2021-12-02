@@ -18,13 +18,18 @@ describe('Game', () => {
     game = new Game()
   });
 
+  it('should be an instance of Game', () => {
+    expect(game).to.be.an.instanceOf(Game);
+  })
+
+  it('should start with no rounds', () => {
+    expect(game.currentRound).to.deep.equal({})
+  })
+
   it('should keep track of the current round', () => {
+    game.start();
+
     expect(game.currentRound).to.be.an.instanceOf(Round);
   })
 
-  it('should put cards in a deck', () => {
-    game.start();
-
-    expect(deck).to.be.an.instanceOf(Deck);
-  })
 })
