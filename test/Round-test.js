@@ -8,10 +8,15 @@ const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 
 describe('Round', function() {
+  let deck;
+  let round;
+  let card;
+  let turn;
+
   it('should return the current card being played', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     let turn = new Turn('object', card);
 
     round.returnCurrentCard();
@@ -20,10 +25,10 @@ describe('Round', function() {
   })
 
   it('should create a new instance of Turn', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('object', card);
 
     round.takeTurn();
 
@@ -31,10 +36,10 @@ describe('Round', function() {
   })
 
   it('should update turns count when guess is correct', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('object', card);
 
     round.takeTurn();
 
@@ -42,10 +47,10 @@ describe('Round', function() {
   }) 
 
   it('should update turns count when guess is incorrect', function () {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('array', card);
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('array', card);
 
     round.takeTurn();
 
@@ -53,10 +58,10 @@ describe('Round', function() {
   })
 
   it('should update current card to the next card', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('object', card);
 
     round.takeTurn('object');
 
@@ -64,12 +69,12 @@ describe('Round', function() {
   })
 
   it('should store incorrect guesses in an array', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('array', card.id[1]);
-    const turn2 = new Turn('array', card.id[2]);
-    const turn3 = new Turn('iteration method', card.id[3])
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn1 = new Turn('array', card.id[1]);
+    let turn2 = new Turn('array', card.id[2]);
+    let turn3 = new Turn('iteration method', card.id[3])
 
     round.takeTurn('array');
     round.takeTurn('array');
@@ -79,10 +84,10 @@ describe('Round', function() {
   })
 
   it('should return feedback if incorrect', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('array', card);
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn1 = new Turn('array', card);
 
     round.takeTurn('array');
 
@@ -90,23 +95,23 @@ describe('Round', function() {
   })
 
   it('should return feedback if correct', function () {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('object', card);
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn1 = new Turn('object', card);
 
-    const correctGuess = round.takeTurn('object');
+    let correctGuess = round.takeTurn('object');
 
     expect(round.turn.giveFeedback()).to.equal('Correct!')
   })
 
   it('should calculate the percent correct', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('array', card.id[1]);
-    const turn2 = new Turn('array', card.id[2]);
-    const turn3 = new Turn('iteration method', card.id[3])
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn1 = new Turn('array', card.id[1]);
+    let turn2 = new Turn('array', card.id[2]);
+    let turn3 = new Turn('iteration method', card.id[3])
 
     round.takeTurn('array');
     round.takeTurn('array');
@@ -117,12 +122,12 @@ describe('Round', function() {
   })
 
   it('should end the round', function() {
-    const deck = new Deck(smallData.protoData);
-    const round = new Round(deck);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn('array', card.id[1]);
-    const turn2 = new Turn('array', card.id[2]);
-    const turn3 = new Turn('iteration method', card.id[3])
+    deck = new Deck(smallData.protoData);
+    round = new Round(deck);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn1 = new Turn('array', card.id[1]);
+    let turn2 = new Turn('array', card.id[2]);
+    let turn3 = new Turn('iteration method', card.id[3])
 
     round.takeTurn('array');
     round.takeTurn('array');
