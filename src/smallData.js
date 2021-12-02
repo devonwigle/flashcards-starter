@@ -1,4 +1,4 @@
-const prototypeData = [{
+const protoData = [{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
   "answers": ["object", "array", "function"],
@@ -14,3 +14,5 @@ const prototypeData = [{
   "answers": ["mutator method", "accessor method", "iteration method"],
   "correctAnswer": "mutator method"
 }]
+
+module.exports = {protoData};
