@@ -12,20 +12,15 @@ class Round {
   }
   takeTurn(guess) {
     const currentCard = this.returnCurrentCard();
+    this.turns++;
     this.turn = new Turn(guess, currentCard)
     if (!this.turn.evaluateGuess()) {
-      console.log("id: ",currentCard.id)
-      console.log("guess: ", guess)
-      console.log("answer: ", currentCard.correctAnswer)
       this.incorrectGuesses.push(currentCard.id)
-      return this.turn.giveFeedback()
-    } else if (this.turn.evaluateGuess()) {
-      return this.turn.giveFeedback();
     }
-    this.turns++;
-  }
+    this.turn.giveFeedback()
+    };
   calculatePercentCorrect() {
-    return (1 - (this.incorrectGuess/this.deck))*100
+    return Math.round(10*(1 - (this.incorrectGuesses.length/this.deck.length))*100)/10
   }
 }
 
