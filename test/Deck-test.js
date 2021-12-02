@@ -5,13 +5,15 @@ const Deck = require('../src/Deck')
 const data = require('../src/data')
 
 describe('Deck', () => {
+  let deck;
+
   it('should contain an array', () => {
-    const deck = new Deck(data.prototypeData);
+    deck = new Deck(data.prototypeData);
     expect(deck.pack).to.be.an('array');
   })
 
   it('should contain 30 objects', () => {
-    const deck = new Deck(data.prototypeData);
+    deck = new Deck(data.prototypeData);
     expect(deck.countCards()).to.equal(30);
   })
 })
