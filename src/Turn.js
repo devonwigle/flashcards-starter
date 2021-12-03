@@ -20,8 +20,7 @@ class Turn {
   }
 
   giveFeedback() {
-    let checkGuess = this.evaluateGuess()
-    if (checkGuess) {
+    if (this.evaluateGuess()) {
       return 'Correct!'
     }
     return 'Incorrect!'
