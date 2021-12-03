@@ -32,4 +32,9 @@ describe('Game', () => {
     expect(game.currentRound).to.be.an.instanceOf(Round);
   })
 
+  it('should be an instance of Card', () => {
+    card = new Card();
+    expect(card).to.be.an.instanceof(Card);
+  });
+
 })
