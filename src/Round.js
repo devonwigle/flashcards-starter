@@ -22,7 +22,7 @@ class Round {
     }
     return this.turn.giveFeedback(answer)
 
-  };
+  }
 
   calculatePercentCorrect() {
     const percent = Math.round(10 * (1 - (this.incorrectGuesses.length / this.deck.length)) * 100) / 10
