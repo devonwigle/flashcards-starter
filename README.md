@@ -1,4 +1,30 @@
-# FlashCards Starter Kit
+# FlashCards Game Kit
+
+## Abstract
+
+To create a game of flashcards played through the command line. Built using ES6 classes and an extensive testing suite.
+
+
+The opening question. The blue text is your current choice. The arrow keys or typing followed by enter, can be used to choose the answer you want.
+
+<img width="569" alt="Screen Shot 2021-12-02 at 8 51 47 PM" src="https://user-images.githubusercontent.com/88619501/144536957-e01ab908-e74a-4a3b-b9da-0f623e5b1995.png">
+
+
+
+The closing statement tells you the round is over and the percentage you had correct.
+You can exit the game by pressing crtl + c on a mac.
+
+<img width="571" alt="Screen Shot 2021-12-02 at 8 52 21 PM" src="https://user-images.githubusercontent.com/88619501/144536954-5872c78f-e3ae-4be5-bc91-65bd1560ea10.png">
+
+## Technologies Used
+
+  * VS Code
+  * Terminal
+  * Github
+  * Language
+    * Javascript
+
+# Install & Setup Instructions
 
 ## Fork This Repo
 
